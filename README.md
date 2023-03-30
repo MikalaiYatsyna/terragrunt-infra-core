@@ -1,33 +1,42 @@
 # Terragrunt
-Terragrunt code for provisioning stack resources.
+Terragrunt code for provisioning core resources.
 ```
-└── aws
-    ├── kubernetes
-    │   ├── cluster
-    │   │   └── terragrunt.hcl
-    │   ├── namespace
-    │   │   └── tooling
-    │   │       └── terragrunt.hcl
-    │   └── tools
-    │       ├── autoscaler
-    │       │   └── terragrunt.hcl
-    │       ├── consul
-    │       │   └── terragrunt.hcl
-    │       ├── ingress
-    │       │   └── terragrunt.hcl
-    │       └── vault
-    │           └── terragrunt.hcl
-    ├── network
-    │   ├── certificate_import
-    │   │   └── terragrunt.hcl
-    │   ├── cloudflare_dns
-    │   │   └── terragrunt.hcl
-    │   ├── cloudflare_origin_ca
-    │   │   └── terragrunt.hcl
-    │   ├── vpc
-    │   │   └── terragrunt.hcl
-    │   └── zone
-    │       └── terragrunt.hcl
-    └── terragrunt.hcl
-
+├── aws
+│   └── ecr
+│       └── vault_init_image
+│           └── terragrunt.hcl
+├── kubernetes
+│   ├── cluster
+│   │   └── terragrunt.hcl
+│   ├── namespace
+│   │   └── core
+│   │       └── terragrunt.hcl
+│   └── tools
+│       ├── autoscaler
+│       │   └── terragrunt.hcl
+│       ├── cert_manager
+│       │   └── terragrunt.hcl
+│       ├── cert_manager_issuer
+│       │   └── terragrunt.hcl
+│       ├── consul
+│       │   └── terragrunt.hcl
+│       ├── external_dns
+│       │   └── terragrunt.hcl
+│       ├── ingress
+│       │   └── terragrunt.hcl
+│       ├── vault
+│       │   └── terragrunt.hcl
+│       └── vault_config
+│           ├── k8s-auth
+│           │   └── terragrunt.hcl
+│           └── secret_backends
+│               └── terragrunt.hcl
+├── network
+│   ├── cloudflare_dns
+│   │   └── terragrunt.hcl
+│   ├── vpc
+│   │   └── terragrunt.hcl
+│   └── zone
+│       └── terragrunt.hcl
+└── terragrunt.hcl
 ```
