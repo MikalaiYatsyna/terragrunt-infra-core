@@ -38,10 +38,11 @@ jobs:
           terragrunt_version: 0.43.2
 
       - name: ${{ github.event.inputs.action }} core infra stack
-        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
+        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive c
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TG_TF_REGISTRY_TOKEN: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
           ROOT_DOMAIN: ${{ secrets.DOMAIN }}
           ECR_URL: ${{ secrets.ECR_URL }}
           EMAIL: ${{ secrets.EMAIL }}
+          TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}

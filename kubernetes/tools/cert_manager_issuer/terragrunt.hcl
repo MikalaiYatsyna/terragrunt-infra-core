@@ -9,15 +9,15 @@ terraform {
 
 
 dependency "kubernetes_cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 dependency "core_namespace" {
-  config_path = "${get_repo_root()}/aws/kubernetes/namespace/core"
+  config_path = "${get_repo_root()}/kubernetes/namespace/core"
 }
 
 dependency "cert_manager" {
-  config_path  = "${get_repo_root()}/aws/kubernetes/tools/cert_manager"
+  config_path  = "${get_repo_root()}/kubernetes/tools/cert_manager"
   skip_outputs = true
 }
 

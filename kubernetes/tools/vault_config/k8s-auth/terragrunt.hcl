@@ -8,15 +8,15 @@ terraform {
 }
 
 dependency "vault" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/vault"
+  config_path = "${get_repo_root()}/kubernetes/tools/vault"
 }
 
 dependency "kubernetes_cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 dependency "core_namespace" {
-  config_path = "${get_repo_root()}/aws/kubernetes/namespace/core"
+  config_path = "${get_repo_root()}/kubernetes/namespace/core"
 }
 
 inputs = {

@@ -8,41 +8,41 @@ terraform {
 }
 
 dependency "zone" {
-  config_path  = "${get_repo_root()}/aws/network/zone"
+  config_path  = "${get_repo_root()}/network/zone"
   skip_outputs = true
 }
 
 dependency "kubernetes_cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 dependency "core_namespace" {
-  config_path = "${get_repo_root()}/aws/kubernetes/namespace/core"
+  config_path = "${get_repo_root()}/kubernetes/namespace/core"
 }
 
 dependency "ingress" {
-  config_path  = "${get_repo_root()}/aws/kubernetes/tools/ingress"
+  config_path  = "${get_repo_root()}/kubernetes/tools/ingress"
   skip_outputs = true
 }
 
 dependency "cert_manager_issuer" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/cert_manager_issuer"
+  config_path = "${get_repo_root()}/kubernetes/tools/cert_manager_issuer"
 }
 
 dependency "vault" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/vault"
+  config_path = "${get_repo_root()}/kubernetes/tools/vault"
 }
 
 dependency "vault_secret_backends" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/vault_config/secret_backends"
+  config_path = "${get_repo_root()}/kubernetes/tools/vault_config/secret_backends"
 }
 
 dependency "vault_k8s_auth" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/vault_config/k8s-auth"
+  config_path = "${get_repo_root()}/kubernetes/tools/vault_config/k8s-auth"
 }
 
 dependency "external_dns" {
-  config_path  = "${get_repo_root()}/aws/kubernetes/tools/external_dns"
+  config_path  = "${get_repo_root()}/kubernetes/tools/external_dns"
   skip_outputs = true
 }
 
