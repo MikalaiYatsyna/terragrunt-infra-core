@@ -8,7 +8,7 @@ terraform {
 }
 
 dependency "vault" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/vault"
+  config_path = "${get_repo_root()}/kubernetes/tools/vault"
 }
 
 inputs = {

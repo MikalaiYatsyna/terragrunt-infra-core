@@ -1,10 +1,6 @@
 # Terragrunt
 Terragrunt code for provisioning core resources.
 ```
-├── aws
-│   └── ecr
-│       └── vault_init_image
-│           └── terragrunt.hcl
 ├── kubernetes
 │   ├── cluster
 │   │   └── terragrunt.hcl

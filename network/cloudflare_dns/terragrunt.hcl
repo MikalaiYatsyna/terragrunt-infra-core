@@ -8,7 +8,7 @@ terraform {
 }
 
 dependency "zone" {
-  config_path = "${get_parent_terragrunt_dir()}/network/zone"
+  config_path = "${get_repo_root()}/network/zone"
 }
 
 inputs = {

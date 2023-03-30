@@ -13,29 +13,29 @@ terraform {
 }
 
 dependency "zone" {
-  config_path  = "${get_repo_root()}/aws/network/zone"
+  config_path  = "${get_repo_root()}/network/zone"
   skip_outputs = true
 }
 
 dependency "kubernetes_cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 dependency "core_namespace" {
-  config_path = "${get_repo_root()}/aws/kubernetes/namespace/core"
+  config_path = "${get_repo_root()}/kubernetes/namespace/core"
 }
 
 dependency "ingress" {
-  config_path  = "${get_repo_root()}/aws/kubernetes/tools/ingress"
+  config_path  = "${get_repo_root()}/kubernetes/tools/ingress"
   skip_outputs = true
 }
 
 dependency "cert_manager_issuer" {
-  config_path = "${get_repo_root()}/aws/kubernetes/tools/cert_manager_issuer"
+  config_path = "${get_repo_root()}/kubernetes/tools/cert_manager_issuer"
 }
 
 dependency "external_dns" {
-  config_path  = "${get_repo_root()}/aws/kubernetes/tools/external_dns"
+  config_path  = "${get_repo_root()}/kubernetes/tools/external_dns"
   skip_outputs = true
 }
 

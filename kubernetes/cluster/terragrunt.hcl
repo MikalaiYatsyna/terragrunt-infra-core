@@ -8,7 +8,7 @@ terraform {
 }
 
 dependency "vpc" {
-  config_path = "${get_repo_root()}/aws/network/vpc"
+  config_path = "${get_repo_root()}/network/vpc"
 }
 
 inputs = {

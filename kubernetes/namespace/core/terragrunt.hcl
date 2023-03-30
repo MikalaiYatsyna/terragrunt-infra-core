@@ -8,7 +8,7 @@ terraform {
 }
 
 dependency "cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 include "root" {

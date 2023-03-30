@@ -8,11 +8,11 @@ terraform {
 }
 
 dependency "kubernetes_cluster" {
-  config_path = "${get_repo_root()}/aws/kubernetes/cluster"
+  config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
 dependency "zone" {
-  config_path = "${get_parent_terragrunt_dir()}/network/zone"
+  config_path = "${get_repo_root()}/network/zone"
 }
 
 inputs = {

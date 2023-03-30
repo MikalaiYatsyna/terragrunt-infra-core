@@ -1,15 +1,16 @@
 locals {
-  stack           = "core"
-  root_domain     = get_env("ROOT_DOMAIN")
-  region          = get_env("AWS_REGION")
-  ecr_url         = get_env("ECR_URL")
-  email           = get_env("EMAIL")
-  domain          = "${local.stack}.${local.root_domain}"
+  stack             = "core"
+  root_domain       = get_env("ROOT_DOMAIN")
+  region            = get_env("AWS_REGION")
+  ecr_url           = get_env("ECR_URL")
+  email             = get_env("EMAIL")
+  state_bucket_name = get_env("TF_STATE_BUCKET")
+  domain            = "${local.stack}.${local.root_domain}"
 
   aws = {
     ecr = {
-      source = "app.terraform.io/logistic/ecr/aws"
-      version =  "0.0.1"
+      source  = "app.terraform.io/logistic/ecr/aws"
+      version = "0.0.1"
     }
   }
   kubernetes = {
@@ -32,11 +33,11 @@ locals {
       }
       consul = {
         source  = "app.terraform.io/logistic/consul/aws"
-        version = "0.0.5"
+        version = "0.0.7"
       }
       vault = {
         source  = "app.terraform.io/logistic/vault/aws"
-        version = "0.0.6"
+        version = "0.0.7"
       }
       cert_manager = {
         source  = "app.terraform.io/logistic/eks-cert-manager/aws"
@@ -80,7 +81,7 @@ remote_state {
   backend = "s3"
   config = {
     region         = local.region
-    bucket         = "mikalai-yatsyna-tf-state"
+    bucket         = local.state_bucket_name
     key            = "${local.stack}/${path_relative_to_include()}.tfstate"
     dynamodb_table = "tf_state_lock"
     encrypt        = true
