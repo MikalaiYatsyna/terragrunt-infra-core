@@ -1,13 +1,26 @@
 # Terragrunt
 Terragrunt code for provisioning core resources.
 ```
+.
 ├── kubernetes
 │   ├── cluster
 │   │   └── terragrunt.hcl
 │   ├── namespace
-│   │   └── core
+│   │   ├── argo
+│   │   │   └── terragrunt.hcl
+│   │   ├── autoscaler
+│   │   │   └── terragrunt.hcl
+│   │   ├── cert_manager
+│   │   │   └── terragrunt.hcl
+│   │   ├── external_dns
+│   │   │   └── terragrunt.hcl
+│   │   ├── hashicorp
+│   │   │   └── terragrunt.hcl
+│   │   └── ingress
 │   │       └── terragrunt.hcl
 │   └── tools
+│       ├── argo_cd
+│       │   └── terragrunt.hcl
 │       ├── autoscaler
 │       │   └── terragrunt.hcl
 │       ├── cert_manager
@@ -35,4 +48,5 @@ Terragrunt code for provisioning core resources.
 │   └── zone
 │       └── terragrunt.hcl
 └── terragrunt.hcl
+
 ```

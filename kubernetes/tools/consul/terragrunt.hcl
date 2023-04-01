@@ -7,8 +7,8 @@ terraform {
   source = "tfr://${include.root.locals.kubernetes.tools.consul.source}//.?version=${include.root.locals.kubernetes.tools.consul.version}"
 }
 
-dependency "zone" {
-  config_path  = "${get_repo_root()}/network/zone"
+dependency "external_dns" {
+  config_path  = "${get_repo_root()}/kubernetes/tools/external_dns"
   skip_outputs = true
 }
 
@@ -16,8 +16,8 @@ dependency "kubernetes_cluster" {
   config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
-dependency "core_namespace" {
-  config_path = "${get_repo_root()}/kubernetes/namespace/core"
+dependency "hashicorp_namespace" {
+  config_path = "${get_repo_root()}/kubernetes/namespace/hashicorp"
 }
 
 dependency "ingress" {
@@ -49,7 +49,7 @@ dependency "external_dns" {
 inputs = {
   stack                    = include.root.locals.stack
   cluster_name             = dependency.kubernetes_cluster.outputs.cluster_name
-  namespace                = dependency.core_namespace.outputs.name
+  namespace                = dependency.hashicorp_namespace.outputs.name
   domain                   = include.root.locals.domain
   oidc_provider_arn        = dependency.kubernetes_cluster.outputs.oidc_provider_arn
   certificate_issuer       = dependency.cert_manager_issuer.outputs.letsencrypt_issuer

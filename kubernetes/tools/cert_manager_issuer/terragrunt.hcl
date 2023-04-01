@@ -12,8 +12,8 @@ dependency "kubernetes_cluster" {
   config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
-dependency "core_namespace" {
-  config_path = "${get_repo_root()}/kubernetes/namespace/core"
+dependency "cert_manager_namespace" {
+  config_path = "${get_repo_root()}/kubernetes/namespace/cert_manager"
 }
 
 dependency "cert_manager" {
@@ -27,5 +27,5 @@ inputs = {
   domain       = include.root.locals.domain
   region       = include.root.locals.region
   email        = include.root.locals.email
-  namespace    = dependency.core_namespace.outputs.name
+  namespace    = dependency.cert_manager_namespace.outputs.name
 }
