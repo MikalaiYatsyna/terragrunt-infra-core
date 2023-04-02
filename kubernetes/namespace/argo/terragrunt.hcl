@@ -18,5 +18,5 @@ include "root" {
 
 inputs = {
   cluster_name   = dependency.cluster.outputs.cluster_name
-  namespace_name = "core"
+  namespace_name = "argo"
 }

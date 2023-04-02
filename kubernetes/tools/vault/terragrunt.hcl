@@ -21,8 +21,8 @@ dependency "kubernetes_cluster" {
   config_path = "${get_repo_root()}/kubernetes/cluster"
 }
 
-dependency "core_namespace" {
-  config_path = "${get_repo_root()}/kubernetes/namespace/core"
+dependency "hashicorp_namespace" {
+  config_path = "${get_repo_root()}/kubernetes/namespace/hashicorp"
 }
 
 dependency "ingress" {
@@ -42,7 +42,7 @@ dependency "external_dns" {
 inputs = {
   stack              = include.root.locals.stack
   cluster_name       = dependency.kubernetes_cluster.outputs.cluster_name
-  namespace          = dependency.core_namespace.outputs.name
+  namespace          = dependency.hashicorp_namespace.outputs.name
   domain             = include.root.locals.domain
   oidc_provider_arn  = dependency.kubernetes_cluster.outputs.oidc_provider_arn
   vault_init_image   = "${include.root.locals.ecr_url}/vault-init:1.0.3"

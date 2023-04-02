@@ -7,16 +7,10 @@ locals {
   state_bucket_name = get_env("TF_STATE_BUCKET")
   domain            = "${local.stack}.${local.root_domain}"
 
-  aws = {
-    ecr = {
-      source  = "app.terraform.io/logistic/ecr/aws"
-      version = "0.0.1"
-    }
-  }
   kubernetes = {
     cluster = {
       source  = "app.terraform.io/logistic/eks/aws"
-      version = "0.0.7"
+      version = "0.0.8"
     }
     namespace = {
       source  = "app.terraform.io/logistic/eks-ns/aws"
@@ -33,11 +27,11 @@ locals {
       }
       consul = {
         source  = "app.terraform.io/logistic/consul/aws"
-        version = "0.0.7"
+        version = "0.0.9"
       }
       vault = {
         source  = "app.terraform.io/logistic/vault/aws"
-        version = "0.0.7"
+        version = "0.0.9"
       }
       cert_manager = {
         source  = "app.terraform.io/logistic/eks-cert-manager/aws"
@@ -57,6 +51,10 @@ locals {
       }
       external_dns = {
         source  = "app.terraform.io/logistic/external-dns/aws"
+        version = "0.0.2"
+      }
+      argo_cd = {
+        source  = "app.terraform.io/logistic/argo-cd/aws"
         version = "0.0.1"
       }
     }

@@ -15,10 +15,14 @@ dependency "zone" {
   config_path = "${get_repo_root()}/network/zone"
 }
 
+dependency "external_dns_namespace" {
+  config_path = "${get_repo_root()}/kubernetes/namespace/external_dns"
+}
+
 inputs = {
   stack             = include.root.locals.stack
   cluster_name      = dependency.kubernetes_cluster.outputs.cluster_name
   domain            = include.root.locals.domain
-  namespace         = "default"
+  namespace         = dependency.external_dns_namespace.outputs.name
   oidc_provider_arn = dependency.kubernetes_cluster.outputs.oidc_provider_arn
 }
