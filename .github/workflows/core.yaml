@@ -35,9 +35,9 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
 
       - name: Setup Terragrunt
-        uses: autero1/action-terragrunt@v1.3.0
+        uses: autero1/action-terragrunt@v3.0.2
         with:
-          terragrunt_version: 0.43.2
+          terragrunt_version: latest
 
       - name: ${{ github.event.inputs.action }} core infra stack
         run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
