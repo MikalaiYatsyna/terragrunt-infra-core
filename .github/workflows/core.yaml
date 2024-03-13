@@ -42,7 +42,7 @@ jobs:
           terragrunt-version: 0.55.2
 
       - name: ${{ github.event.inputs.action }} core infra stack
-        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
+        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors --terragrunt-log-level debug --terragrunt-debug
         env:
           AWS_ACCESS_KEY_ID: ${{ steps.aws-login.outputs.aws-access-key-id }}
           AWS_SECRET_ACCESS_KEY: ${{ steps.aws-login.outputs.aws-secret-access-key }}
