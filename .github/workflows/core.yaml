@@ -24,9 +24,11 @@ jobs:
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
+        id: aws-login
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
+          output-credentials: true
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@main
@@ -37,11 +39,13 @@ jobs:
       - name: Setup Terragrunt
         uses: autero1/action-terragrunt@v3.0.2
         with:
-          terragrunt_version: latest
+          terragrunt-version: latest
 
       - name: ${{ github.event.inputs.action }} core infra stack
         run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
         env:
+          aws-access-key-id: ${{ steps.aws-login.outputs.aws-access-key-id }}
+          aws-secret-access-key: ${{ steps.aws-login.outputs.aws-secret-access-key }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TG_TF_REGISTRY_TOKEN: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
           ROOT_DOMAIN: ${{ secrets.DOMAIN }}
