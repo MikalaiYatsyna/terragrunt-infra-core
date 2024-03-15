@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.cluster.source}//.?version=${include.root.locals.kubernetes.cluster.version}"
+  source = "tfr://app.terraform.io/logistic/eks/aws?version=0.0.8"
 }
 
 dependency "vpc" {

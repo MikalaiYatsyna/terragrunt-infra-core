@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.cert_manager.source}//.?version=${include.root.locals.kubernetes.tools.cert_manager.version}"
+  source = "tfr://app.terraform.io/logistic/eks-cert-manager/aws?version=0.0.2"
 }
 
 dependency "kubernetes_cluster" {

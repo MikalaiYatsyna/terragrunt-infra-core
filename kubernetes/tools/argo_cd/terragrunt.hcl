@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.argo_cd.source}//.?version=${include.root.locals.kubernetes.tools.argo_cd.version}"
+  source = "tfr://app.terraform.io/logistic/argo-cd/aws?version=0.0.1"
 }
 
 dependency "cluster" {
