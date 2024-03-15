@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.autoscaler.source}//.?version=${include.root.locals.kubernetes.tools.autoscaler.version}"
+  source = "tfr://app.terraform.io/logistic/eks-autoscaler/aws?version=0.0.1"
 }
 
 dependency "cluster" {

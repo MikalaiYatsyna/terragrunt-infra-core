@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.network.cloudflare_dns_record.source}//.?version=${include.root.locals.network.cloudflare_dns_record.version}"
+  source = "tfr://app.terraform.io/logistic/dns-records/cloudflare?version=0.0.2"
 }
 
 dependency "zone" {

@@ -9,7 +9,7 @@ include "root" {
 
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.vault.source}//.?version=${include.root.locals.kubernetes.tools.vault.version}"
+  source = "tfr://app.terraform.io/logistic/vault/aws?version=0.0.9"
 }
 
 dependency "zone" {

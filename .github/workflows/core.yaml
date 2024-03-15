@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -31,7 +31,7 @@ jobs:
           output-credentials: true
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@main
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_wrapper: false
           cli_config_credentials_token: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
       - name: Setup Terragrunt
         uses: autero1/action-terragrunt@v3.0.2
         with:
-          terragrunt-version: 0.43.2
+          terragrunt-version: 0.55.2
 
       - name: ${{ github.event.inputs.action }} core infra stack
         run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors

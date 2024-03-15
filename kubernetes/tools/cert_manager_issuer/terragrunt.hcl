@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.cert_manager_issuer.source}//.?version=${include.root.locals.kubernetes.tools.cert_manager_issuer.version}"
+  source = "tfr://app.terraform.io/logistic/cert-manager-issuer/aws?version=0.0.6"
 }
 
 

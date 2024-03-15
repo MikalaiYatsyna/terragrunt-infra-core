@@ -4,8 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.namespace.source}//.?version=${include.root.locals.kubernetes.namespace.version}"
-}
+  source = "tfr://app.terraform.io/logistic/eks-ns/aws?version=0.0.2"}
 
 dependency "cluster" {
   config_path = "${get_repo_root()}/kubernetes/cluster"

@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://${include.root.locals.kubernetes.tools.vault_backends.source}//.?version=${include.root.locals.kubernetes.tools.vault_backends.version}"
+  source = "tfr://app.terraform.io/logistic/secret-backends/vault?version=0.0.3"
 }
 
 dependency "vault" {
