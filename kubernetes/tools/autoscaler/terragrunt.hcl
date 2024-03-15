@@ -4,20 +4,24 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/eks-autoscaler/aws?version=0.0.2"
+  source = "tfr://app.terraform.io/logistic/eks-autoscaler/aws?version=0.0.3"
 }
 
 dependency "cluster" {
-  config_path = "${get_repo_root()}/kubernetes/cluster"
+  config_path = "${get_repo_root()}/aws/eks"
 }
 
-dependency "autoscaler_namespace" {
+dependency "namespace" {
   config_path = "${get_repo_root()}/kubernetes/namespace/autoscaler"
 }
 
 inputs = {
+  namespace                        = dependency.namespace.outputs.name
   cluster_name                     = dependency.cluster.outputs.cluster_name
-  cluster_identity_oidc_issuer     = dependency.cluster.outputs.oidc_provider
+  cluster_identity_oidc_issuer     = dependency.cluster.outputs.oidc_provide_url
   cluster_identity_oidc_issuer_arn = dependency.cluster.outputs.oidc_provider_arn
-  namespace                        = dependency.autoscaler_namespace.outputs.name
+  cluster_endpoint                 = dependency.cluster.outputs.cluster_endpoint
+  cluster_ca                       = dependency.cluster.outputs.cluster_ca
+  k8s_exec_args                    = concat(include.root.locals.k8s_auth_exec_args, [dependency.cluster.outputs.cluster_name])
+  k8s_exec_command                 = include.root.locals.k8s_exec_command
 }

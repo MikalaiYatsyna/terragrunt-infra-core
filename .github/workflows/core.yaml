@@ -10,6 +10,11 @@ on:
         options:
           - apply
           - destroy
+      platform:
+        type: string
+        description: 'Name of platform to be created'
+        required: true
+
 permissions:
   id-token: write
   contents: read
@@ -41,8 +46,11 @@ jobs:
         with:
           terragrunt-version: 0.55.2
 
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+
       - name: ${{ github.event.inputs.action }} core infra stack
-        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
+        run: cd kubernetes/cluster && terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors --terragrunt-disable-bucket-update
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TG_TF_REGISTRY_TOKEN: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
@@ -50,3 +58,4 @@ jobs:
           ECR_URL: ${{ secrets.ECR_URL }}
           EMAIL: ${{ secrets.EMAIL }}
           TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
+          PLATFORM: ${{ github.event.inputs.platform }}
