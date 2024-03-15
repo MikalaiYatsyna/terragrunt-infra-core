@@ -62,7 +62,7 @@ locals {
   network = {
     vpc = {
       source  = "app.terraform.io/logistic/vpc/aws"
-      version = "0.0.4"
+      version = "0.0.5"
     }
     zone = {
       source  = "app.terraform.io/logistic/route53/aws"
