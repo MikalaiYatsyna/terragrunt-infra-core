@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/route53/aws?version=0.0.1"
+  source = "tfr://app.terraform.io/logistic/route53/aws?version=0.0.2"
 }
 
 inputs = {
