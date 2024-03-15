@@ -64,10 +64,6 @@ locals {
       source  = "app.terraform.io/logistic/vpc/aws"
       version = "0.0.5"
     }
-    zone = {
-      source  = "app.terraform.io/logistic/route53/aws"
-      version = "0.0.1"
-    }
     cloudflare_dns_record = {
       source  = "app.terraform.io/logistic/dns-records/cloudflare"
       version = "0.0.2"
