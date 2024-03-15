@@ -2,5 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "hostRules": [
+   {
+     "matchHost": "app.terraform.io",
+     "encrypted": {
+       "token": "wcFMA/xDdHCJBTolAQ//RgW/ckk8DgfCWtPTlVgk+rpVIyr5sIJ2JNS39qt7le0p4U/vYZnbJGAO4mfWoFy7QVY8I0kqKfPApKKkNIt1cbhlvAJGCxaCwTRfLAL+WozcM+/xQNWRF/Fs19rDmsrGvL3NBJIZfgODWYNDiimY0FB/51dfhZkPGdkMmeAPJIu+dR9yELkoUIoccmfLcGfLFoTUhUIxNuPLzF/Th9SqwY8o9fsRF0KZrBD7qzuWoLUdG65CThWnfbCEsG9l+rOXAt2H2l8lkSTr2bC8X5A0gJOAe69ZE90hKgnH/sMvEjJfClM9nG3vDAddraIBu2mnw7+p9ws6NJpxBFKnD7+eyakRZoGlegVkean99ZJBh6YNKwGFGYOeVjZYxuxU77Sc8vgA5pyGQz+gvfEAZ/iMV8hX2ESNqKLIu5ublAhMTR4Li+asSWD5ohzt1jgwDRyRnxwHJHZp7fs7tDDxZ7EYKHSSsg0055BV1aupjzhsnV9uZyf1Dlu0Bxo6jcnOumm2JCZ1iKmRvQLTBwkWlrpdQDa/gp+oA8kpESVbt/4KmWIgULinN73FOiKJ0Ul00JU91+RWuPKOiJUQjdJNmNI8EXgxjE0rGcDcTEHzoR/kdb+G9PlPtan0kY4SI7GHszoFMOljyiw9rOSKfWQvT5tyxrC7y3QJi5OgA8ACDSfGwhPSwAQBrQeo9QBiLZXnZGOLVBcXOmJLEaapJX5VViMYh8QmaxD15JDA/O12xgWaaPQ2tP2olOU4j8aRTRIiiiA2EbkSmCwby69tDfaiqXvMgCRT8ny2ElWU2+WNFswxxe6Q5p9s7eCM/eiphZvt+U3wKmmmPqhZ2LW4OkBBs1V2LE+oo2h4lQiNOOKDObn1hJSEVut68qM4U2ECMqZ0cSunjRD/VkQIgosZkNt7/+tnGq+nbl5FX+O6OMGbxgmw89yrI2RzFv28"
+     }
+   }
   ]
 }
