@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/k8s-auth/vault?version=0.0.1"
+  source = "tfr://app.terraform.io/logistic/k8s-auth/vault?version=0.0.2"
 }
 
 dependency "vault" {
