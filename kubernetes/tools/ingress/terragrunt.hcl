@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/eks-ingress/aws?version=0.0.11"
+  source = "tfr://app.terraform.io/logistic/eks-ingress/aws?version=0.0.12"
 }
 
 dependency "cluster" {
