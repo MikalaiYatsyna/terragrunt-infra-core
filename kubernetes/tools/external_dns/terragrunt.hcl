@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/external-dns/aws?version=0.0.2"
+  source = "tfr://app.terraform.io/logistic/external-dns/aws?version=0.0.3"
 }
 
 dependency "kubernetes_cluster" {
