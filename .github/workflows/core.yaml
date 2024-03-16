@@ -39,13 +39,6 @@ jobs:
           terraform_wrapper: false
           cli_config_credentials_token: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
 
-      - uses: marcofranssen/setup-iamlive@v1.2.0
-        with:
-          iamlive-version: v0.53.0
-          auto-capture: true
-          output-file: iamlive-policy.json
-          fails-only: true
-
       - name: Setup Terragrunt
         uses: autero1/action-terragrunt@v3.0.2
         with:
