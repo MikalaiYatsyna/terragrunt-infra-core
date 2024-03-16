@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/eks/aws?version=0.0.8"
+  source = "tfr://app.terraform.io/logistic/eks/aws?version=0.0.9"
 }
 
 dependency "vpc" {
