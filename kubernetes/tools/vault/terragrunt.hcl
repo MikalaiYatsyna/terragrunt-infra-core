@@ -9,7 +9,7 @@ include "root" {
 
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/vault/aws?version=0.0.9"
+  source = "tfr://app.terraform.io/logistic/vault/aws?version=0.0.10"
 }
 
 dependency "zone" {
