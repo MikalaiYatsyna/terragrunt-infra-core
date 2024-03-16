@@ -14,9 +14,6 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  AWS_CSM_ENABLED: 'true'
-
 jobs:
   manage_stack:
     name: ${{ github.event.inputs.action }} core infra stack
@@ -45,7 +42,7 @@ jobs:
           terragrunt-version: 0.55.2
 
       - name: ${{ github.event.inputs.action }} core infra stack
-        run: cd kubernetes/cluster && terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
+        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TG_TF_REGISTRY_TOKEN: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
