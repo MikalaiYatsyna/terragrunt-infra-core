@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "tfr://app.terraform.io/logistic/secret-backends/vault?version=0.0.3"
+  source = "tfr://app.terraform.io/logistic/secret-backends/vault?version=0.0.4"
 }
 
 dependency "vault" {
