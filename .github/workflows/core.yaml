@@ -58,4 +58,5 @@ jobs:
           ECR_URL: ${{ secrets.ECR_URL }}
           EMAIL: ${{ secrets.EMAIL }}
           TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
+          TF_STATE_LOCK_TABLE: ${{ secrets.TF_STATE_LOCK_TABLE }}
           PLATFORM: ${{ github.event.inputs.platform }}
