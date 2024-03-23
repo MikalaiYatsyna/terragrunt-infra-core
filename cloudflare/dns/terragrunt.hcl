@@ -8,7 +8,7 @@ terraform {
 }
 
 dependency "zone" {
-  config_path = "${get_repo_root()}/network/zone"
+  config_path = "${get_repo_root()}/aws/route53"
 }
 
 inputs = {
