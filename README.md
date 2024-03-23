@@ -29,7 +29,7 @@ components such as Autoscaler, Ingress, Consul, Vault, Cert Manager, Grafana, an
 
 ## Network
 
-- [Cloudflare DNS](./network/cloudflare_dns/terragrunt.hcl)
+- [Cloudflare DNS](./cloudflare/dns/terragrunt.hcl)
 - [VPC](aws/vpc/terragrunt.hcl)
 - [Route 53 zone](aws/route53/terragrunt.hcl)
 
