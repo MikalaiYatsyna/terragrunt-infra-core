@@ -50,7 +50,7 @@ jobs:
         uses: unfor19/install-aws-cli-action@v1
 
       - name: ${{ github.event.inputs.action }} core infra stack
-        run: cd kubernetes/cluster && terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors --terragrunt-disable-bucket-update
+        run: terragrunt run-all ${{ github.event.inputs.action }} --terragrunt-non-interactive --terragrunt-ignore-dependency-errors --terragrunt-disable-bucket-update
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TG_TF_REGISTRY_TOKEN: ${{ secrets.TG_TF_REGISTRY_TOKEN }}
